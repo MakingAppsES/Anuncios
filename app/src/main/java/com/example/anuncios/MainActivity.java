@@ -1,9 +1,12 @@
 package com.example.anuncios;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
@@ -17,6 +20,13 @@ public class MainActivity extends ActionBarActivity {
         AdView adView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
 
+        LinearLayout ll = (LinearLayout) findViewById(R.id.list);
+
+        for(int i=0; i<50; i++) {
+            TextView tv = new TextView(getApplicationContext());
+            tv.setText("Item número "+i);
+            ll.addView(tv);
+        }
         adView.loadAd(adRequest);
     }
 
